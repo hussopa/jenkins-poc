@@ -4,7 +4,7 @@ import string
 
 
 def main():
-    X = 17
+    X = 10
     with open("testfile.txt", "w") as f:
         # Just some comment to get a commit
         f.write(''.join(random.choice(string.ascii_letters) for x in range(X)))
