@@ -7,8 +7,10 @@ node {
         echo "PARAMETERS"
         echo "=========="
         echo "$params.first_commit"
-        git branch: 'master'
-        git bisect: 'reset'
+        checkout ( [$class: 'GitSCM',
+        branches: [[name: 'master' ]],
+        userRemoteConfigs: [[
+            url: 'https://github.com/hussopa/jenkins-poc/']]])
     }
     
     stage('Bisect'){
