@@ -9,5 +9,5 @@ My Test
 
 *** Keywords ***
 Test String
-    [Arguments]           ${value}
+    [Arguments]          ${value}
     check file           ${value}
