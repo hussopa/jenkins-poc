@@ -1,0 +1,23 @@
+#!groovy
+import hudson.EnvVars
+import jenkins.model.*
+
+node {
+    
+    stage("SCM") {
+        //git 'https://github.com/hussopa/SWD4TA002-3001/'
+        //git branch: 'master'
+        def branch = params.REVISION ?: 'master'
+        checkout ( [$class: 'GitSCM',
+        branches: [[name: branch ]],
+        userRemoteConfigs: [[
+            url: 'https://github.com/hussopa/SWD4TA002-3001/']]])
+        //checkout([$class: 'GitSCM', branches: [[name: "$params.REVISION"]], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/hussopa/SWD4TA002-3001/']]])
+    }
+    
+    stage('test'){
+    echo "Hello World + $params.REVISION"
+    currentBuild.result = 'UNSTABLE'
+    currentBuild.description = "$params.REVISION"
+    }
+}
