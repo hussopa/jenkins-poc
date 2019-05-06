@@ -16,7 +16,7 @@ node {
             continuesBuild: true, 
             gitCommand: 'git', 
             goodStartCommit: "$params.first_commit", 
-            jobToRun: 'tester', 
+            jobToRun: 'build', 
             minSuccessfulIterations: 1, 
             overrideGitCommand: false, 
             retryCount: 0, 
