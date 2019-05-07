@@ -9,7 +9,7 @@ node {
     }
     
     stage('Run test'){
-        def testName = $params.test_name ?: 'test.robot' 
+        def testName = params.test_name ?: 'test.robot' 
             dir("test") {
                 sh "robot " + testName
             }
