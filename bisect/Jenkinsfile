@@ -14,10 +14,10 @@ node {
     }
     
     stage('Bisect'){
-        gitbisect badEndCommit: "$params.last_commit", 
+        gitbisect badEndCommit: "$params.badEndCommit", 
             continuesBuild: true, 
             gitCommand: 'git', 
-            goodStartCommit: "$params.first_commit", 
+            goodStartCommit: "$params.goodStartCommit", 
             jobToRun: 'build', 
             minSuccessfulIterations: 1, 
             overrideGitCommand: false, 
