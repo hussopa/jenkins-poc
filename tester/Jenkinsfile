@@ -4,6 +4,14 @@ import jenkins.model.*
 
 node {
     
+    stage("SCM") {
+        def branch = params.REVISION ?: 'master'
+        checkout ( [$class: 'GitSCM',
+        branches: [[name: branch ]],
+        userRemoteConfigs: [[
+            url: 'https://github.com/hussopa/jenkins-poc/']]])
+    }
+
     stage("Get Artifacts") {
 
     }
