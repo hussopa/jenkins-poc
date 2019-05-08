@@ -11,7 +11,7 @@ node {
     }
     
     stage('Bisect'){
-        def search = (params.search == 'bisect') ? "bisect_$currentBuild.number" : params.search
+        def search = (params.search != 'bisect') ? "bisect_$currentBuild.number" : params.search
         gitbisect badEndCommit: "$params.badEndCommit", 
             continuesBuild: true, 
             gitCommand: 'git', 
