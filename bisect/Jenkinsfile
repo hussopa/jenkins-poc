@@ -20,7 +20,7 @@ node {
             overrideGitCommand: false, 
             retryCount: 0, 
             revisionParameterName: 'REVISION', 
-            searchIdentifier: "$params.search"
+            searchIdentifier: "bisect_$currentBuild.number"
     }
     
 }
