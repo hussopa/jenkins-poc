@@ -19,6 +19,7 @@ node {
     }
     
     stage('Run test'){
+        currentBuild.description = "$params.build_job/#$params.build_number"
         def testName = params.test_name ?: 'test.robot' 
             dir("tests") {
                 sh "robot " + testName
