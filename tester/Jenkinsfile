@@ -13,7 +13,9 @@ node {
     }
 
     stage("Get Artifacts") {
-
+        copyArtifacts(projectName: "build", 
+                    selector: specific("$params.build_number"),
+                    target: "./output")
     }
     
     stage('Run test'){
