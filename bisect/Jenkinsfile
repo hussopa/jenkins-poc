@@ -4,9 +4,6 @@ import jenkins.model.*
 
 node {
     stage('Fetch'){
-        echo "PARAMETERS"
-        echo "=========="
-        echo "$params.first_commit"
         checkout ( [$class: 'GitSCM',
         branches: [[name: 'master' ]],
         userRemoteConfigs: [[

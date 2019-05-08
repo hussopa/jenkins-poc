@@ -12,17 +12,20 @@ node {
             url: 'https://github.com/hussopa/jenkins-poc-sw/']]])
     }
     
-    stage('build'){
-        currentBuild.description = "$params.REVISION"
+    stage('Build'){
+        currentBuild.description = "$params.search - $params.REVISION"
             dir("src") {
                 sh "python3 generator.py"
             }
     }
     
-    stage('post-build actions'){
-        archiveArtifacts 'src/*.txt'
+    stage('Post-Auild Actions'){
+        stage('Archive Artifacts'){
+            archiveArtifacts 'src/*.txt'
+        }
         
-        stage ('Running tests') {
+        
+        stage ('Running Tests') {
             build job: 'tester', parameters: [
                 [$class: 'StringParameterValue', name: 'build_job', value: 'build', 
                 $class: 'StringParameterValue', name: 'build_number', value: "$currentBuild.number"]
