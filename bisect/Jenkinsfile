@@ -10,7 +10,7 @@ node {
         checkout ( [$class: 'GitSCM',
         branches: [[name: 'master' ]],
         userRemoteConfigs: [[
-            url: 'https://github.com/hussopa/jenkins-poc/']]])
+            url: 'https://github.com/hussopa/jenkins-poc-sw/']]])
     }
     
     stage('Bisect'){
@@ -26,19 +26,4 @@ node {
             searchIdentifier: "$params.search"
     }
     
-    stage('Build'){
-        
-    }
-    
-    stage('Load'){
-        
-    }
-    
-    stage('Test'){
-        
-    }
-    
-    stage('Postbuild actions'){
-        
-    }
 }
