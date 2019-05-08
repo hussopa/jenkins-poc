@@ -18,8 +18,7 @@ node {
     
     stage('Run test'){
         def testName = params.test_name ?: 'test.robot' 
-            dir("../tests") {
-                sh "ls"
+            dir("tests") {
                 sh "robot " + testName
             }
     }
