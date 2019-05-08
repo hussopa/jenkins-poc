@@ -1,6 +1,6 @@
 *** Settings ***
 Documentation    Read the file and test string length
-Library          reader
+Library          reader.py
 
 *** Test Cases ***
 My Test
